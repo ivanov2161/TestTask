@@ -1,6 +1,11 @@
 ## Тестовое задание
 В проекте использовал **Django REST Framework**
 
+* Python version - 3.10.4
+* Django version - 4.1
+* djangorestframework version - 3.13.1
+
+
 *Ссылка на задание: https://www.craft.do/s/n6OVYFVUpq0o6L*
 
 **На данный момент выполнено:**
