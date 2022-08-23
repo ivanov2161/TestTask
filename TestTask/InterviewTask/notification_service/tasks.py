@@ -4,10 +4,12 @@ from celery import shared_task
 from datetime import datetime
 import requests
 import pytz
+import os
 
-URL = 'https://probe.fbrq.cloud/v1/send/'
-TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTI0Mjk0MjEsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6ImthdHVsbF9' \
-        'pdnkifQ.VARCHml8sapPc0ipstcfYOTt0niGes7N1luXrLQ-iMI'
+URL = os.getenv('URL')
+TOKEN = os.getenv('TOKEN')
+
+
 header = {
     'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/json'}
@@ -46,8 +48,3 @@ def check_mailings():
                         send_message(mailing.pk, client.pk)
         else:
             pass
-
-
-
-
-
