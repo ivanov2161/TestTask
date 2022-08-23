@@ -6,7 +6,8 @@ import requests
 import pytz
 
 URL = 'https://probe.fbrq.cloud/v1/send/'
-TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTI0Mjk0MjEsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6ImthdHVsbF9pdnkifQ.VARCHml8sapPc0ipstcfYOTt0niGes7N1luXrLQ-iMI'
+TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTI0Mjk0MjEsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6ImthdHVsbF9' \
+        'pdnkifQ.VARCHml8sapPc0ipstcfYOTt0niGes7N1luXrLQ-iMI'
 header = {
     'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/json'}
@@ -30,7 +31,7 @@ def send_message(mailing_id, client_id):
         Message.objects.create(status=False, mailings_id=mailing, client_id=client)
 
 
-@ shared_task(name='check_mailings')
+@shared_task(name='check_mailings')
 def check_mailings():
     mailings = Mailing.objects.all()
     clients = Client.objects.all()
