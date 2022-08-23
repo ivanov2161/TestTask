@@ -17,7 +17,7 @@ class Client(models.Model):
 
 
 class Message(models.Model):
-    sendtime = models.DateTimeField()
+    sendtime = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField()
     mailings_id = models.ForeignKey(Mailing, on_delete=models.CASCADE, related_name='messages')
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='messages')
