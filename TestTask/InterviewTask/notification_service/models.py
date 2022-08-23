@@ -11,7 +11,7 @@ class Mailing(models.Model):
 
 class Client(models.Model):
     phonenumber = models.IntegerField()
-    operatorcode = models.IntegerField()
+    operatorcode = models.CharField(max_length=255)
     tag = models.CharField(max_length=10)
     utc = models.CharField(max_length=10)
 

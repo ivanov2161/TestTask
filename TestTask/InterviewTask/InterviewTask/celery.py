@@ -9,10 +9,9 @@ app.autodiscover_tasks()
 
 
 app.conf.beat_schedule = {
-    'send_message-every-30-seconds': {
-        'task': 'send',
+    'check_mailings-every-30-seconds': {
+        'task': 'check_mailings',
         'schedule': 30.0,
-        'args': (3, 3)
     },
 }
 app.conf.timezone = 'UTC'

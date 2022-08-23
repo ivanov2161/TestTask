@@ -24,7 +24,7 @@ class MailingAPI(viewsets.ModelViewSet):
         out = {}
 
         for row in mailing:
-            res = {'Total messages': 0, 'Sent': 0, 'No sent': 0}
+            res = {'Total messages': 0, 'True': 0, 'False': 0}
             mail = Message.objects.filter(mailings_id=row['id']).all()
             status_true = mail.filter(status=True).count()
             status_false = mail.filter(status=False).count()
