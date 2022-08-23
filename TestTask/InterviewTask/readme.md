@@ -58,7 +58,7 @@ python manage.py runserver
 ```
 Запустить Celery
 ```bash
- celery -A InterviewTask worker -l info
+celery -A InterviewTask worker -l info
 ```
 Запустить Beat
 ```bash
