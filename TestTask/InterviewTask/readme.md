@@ -1,6 +1,8 @@
 ## Тестовое задание
 В проекте использовал **Django REST Framework** и **Celery**
 
+Выполнена основная задача, без дополнительных заданий 
+
 *Ссылка на задание: https://www.craft.do/s/n6OVYFVUpq0o6L*
 
 ## Описание
@@ -47,6 +49,3 @@ celery -A InterviewTask beat -l info
 * http://127.0.0.1:8000/api/message/ - Сообщения
 * http://127.0.0.1:8000/api/mailing/fullstats - Полная статистика
 * http://127.0.0.1:8000/api/mailing/<id>/stats - Статистика по конкретной рассылке
-
-
-
