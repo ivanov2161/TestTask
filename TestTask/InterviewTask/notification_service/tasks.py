@@ -40,3 +40,9 @@ def check_mailings():
             if client.operatorcode == mailing.operatorcode and client.tag == mailing.tag:
                 if mailing.starttime < timenow < mailing.endtime:
                     send_message(mailing.pk, client.pk)
+
+
+def test():
+    mailings = Mailing.objects.set_all()
+    for mail in mailings:
+        print(mail)
