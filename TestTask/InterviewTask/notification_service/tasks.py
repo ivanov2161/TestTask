@@ -9,7 +9,6 @@ import os
 URL = os.getenv('URL')
 TOKEN = os.getenv('TOKEN')
 
-
 header = {
     'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/json'}
