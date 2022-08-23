@@ -25,7 +25,7 @@ python manage.py migrate
 ```
 ## Запуск
 
-Запустить Redis через оболочку Ubuntu
+Запустить Redis
 ```bash
 sudo service redis-server start
 ```
