@@ -14,9 +14,9 @@ Celery каждые 30 секунд проверяет базу данных р�
 ```bash
 pip install -r requirements.txt
 ```
-Установить Redis согласно инструкции (для OS Windows)
+Установить Redis согласно инструкции
 
-https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+https://redis.io/docs/getting-started/installation/
 
 Создать и применить миграции:
 ```bash
