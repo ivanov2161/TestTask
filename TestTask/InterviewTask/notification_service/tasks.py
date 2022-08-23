@@ -9,6 +9,7 @@ import os
 URL = os.getenv('URL')
 TOKEN = os.getenv('TOKEN')
 
+
 header = {
     'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/json'}
@@ -35,14 +36,15 @@ def send_message(mailing_id, client_id):
 @shared_task(name='check_mailings')
 def check_mailings():
     mailings = Mailing.objects.all()
+    clients = Client.objects.all()
     timenow = datetime.now(timezone)
     for mailing in mailings:
         mail = Message.objects.filter(mailings_id=mailing.pk).all()
         amountmessages = mail.count()
         if amountmessages == 0:
-            clients = Client.objects.filter(operatorcode=mailing.operatorcode, tag=mailing.tag)
             for client in clients:
-                if mailing.starttime < timenow < mailing.endtime:
+                if client.operatorcode == mailing.operatorcode and client.tag == mailing.tag:
+                    if mailing.starttime < timenow < mailing.endtime:
                         send_message(mailing.pk, client.pk)
         else:
             pass
