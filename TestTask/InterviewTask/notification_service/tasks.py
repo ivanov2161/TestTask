@@ -38,8 +38,8 @@ def check_mailings():
     timenow = datetime.now(timezone)
     for mailing in mailings:
         mail = Message.objects.filter(mailings_id=mailing.pk).all()
-        status_true = mail.count()
-        if status_true == 0:
+        amountmessages = mail.count()
+        if amountmessages == 0:
             for client in clients:
                 if client.operatorcode == mailing.operatorcode and client.tag == mailing.tag:
                     if mailing.starttime < timenow < mailing.endtime:
