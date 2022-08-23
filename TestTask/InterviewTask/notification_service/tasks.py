@@ -37,13 +37,17 @@ def check_mailings():
     clients = Client.objects.all()
     timenow = datetime.now(timezone)
     for mailing in mailings:
-        for client in clients:
-            if client.operatorcode == mailing.operatorcode and client.tag == mailing.tag:
-                if mailing.starttime < timenow < mailing.endtime:
-                    send_message(mailing.pk, client.pk)
+        mail = Message.objects.filter(mailings_id=mailing.pk).all()
+        status_true = mail.count()
+        if status_true == 0:
+            for client in clients:
+                if client.operatorcode == mailing.operatorcode and client.tag == mailing.tag:
+                    if mailing.starttime < timenow < mailing.endtime:
+                        send_message(mailing.pk, client.pk)
+        else:
+            pass
 
 
-def test():
-    mailings = Mailing.objects.set_all()
-    for mail in mailings:
-        print(mail)
+
+
+
