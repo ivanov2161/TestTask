@@ -14,30 +14,32 @@ Celery каждые 30 секунд проверяет базу данных р�
 ```bash
 pip install -r requirements.txt
 ```
-Установить Redis согласно инструкции
+1. Установить Redis согласно инструкции
 
 https://redis.io/docs/getting-started/installation/
 
-Создать и применить миграции:
+2. Создать и применить миграции:
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+3. Добавить в переменные окружения значения URL и TOKEN
 ## Запуск
 
-Запустить Redis
+1. Запустить Redis
 ```bash
 sudo service redis-server start
 ```
-Запустить сервер
+2. Запустить сервер
 ```bash
 python manage.py runserver
 ```
-Запустить Celery
+3. Запустить Celery
 ```bash
 celery -A InterviewTask worker -l info
 ```
-Запустить Beat
+4. Запустить Beat
 ```bash
 celery -A InterviewTask beat -l info
 ```
